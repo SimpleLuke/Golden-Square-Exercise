@@ -31,4 +31,33 @@ describe GrammarStats do
             expect(result).to eq false
         end
     end
+
+    context 'percentage_good method' do
+        it 'returns 100 when the check method returns true once.' do
+            grammar_stats = GrammarStats.new
+            grammar_stats.check('I am a boy.')
+            result = grammar_stats.percentage_good
+            expect(result).to eq 100
+        end
+
+        it 'returns 50 when the check method returns true and false each once.' do
+            grammar_stats = GrammarStats.new
+            grammar_stats.check('I am a boy.')
+            grammar_stats.check('I am a boy')
+            result = grammar_stats.percentage_good
+            expect(result).to eq 50
+        end
+        it 'returns 42 when the check method returns 3 times true and 4 times false.' do
+            grammar_stats = GrammarStats.new
+            grammar_stats.check('I am a boy.')
+            grammar_stats.check('I am a boy.')
+            grammar_stats.check('I am a boy.')
+            grammar_stats.check('I am a boy')
+            grammar_stats.check('I am a boy')
+            grammar_stats.check('I am a boy')
+            grammar_stats.check('I am a boy')
+            result = grammar_stats.percentage_good
+            expect(result).to eq 42
+        end
+    end
 end
