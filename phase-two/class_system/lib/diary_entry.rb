@@ -2,7 +2,7 @@ class DiaryEntry
   def initialize(title, contents) # title, contents are strings
     @title = title
     @contents = contents
-    @reading_index = {start:0, last:0}
+    # @reading_index = {start:0, last:0}
   end
 
   def title
@@ -61,4 +61,18 @@ class DiaryEntry
       return output.join(' ')
     end
   end
+#     def reading_chunk(wpm, minutes)
+#         words_per_minute = wpm || 250
+#         time = minutes || 1
+#         words_to_read = words_per_minute * time
+#         array = @contents.split(' ')
+#         return '' if @contents == ''
+#         @reading_index ||= 0
+#         if @reading_index >= array.length
+#             @reading_index = 0
+#         end
+#         array = array[@reading_index...@reading_index + words_to_read].join(' ')
+#         @reading_index += words_to_read
+#         array
+#   end
 end
