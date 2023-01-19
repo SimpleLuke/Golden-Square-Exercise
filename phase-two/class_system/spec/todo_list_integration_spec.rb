@@ -27,8 +27,8 @@ describe 'Todo List integration' do
         expect(@todo_list.incomplete).to eq [@todo_3]
     end
 
-    # it 'marks all todos as complete and returns a complete list as an array' do
-    #     @todo_list.give_up!
-    #     expect(@todo_list.complete).to eq [@todo_1,@todo_2]
-    # end
+    it 'marks all todos as complete and returns a complete list as an array' do
+        @todo_list.give_up!
+        expect(@todo_list.complete).to eq [@todo_1,@todo_2,@todo_3]
+    end
 end

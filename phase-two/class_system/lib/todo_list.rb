@@ -24,11 +24,8 @@ class TodoList
 
   def give_up!
     # Marks all todos as complete
-    # p @incomplete_list
     @incomplete_list.each do |task|
-        # p task
         task.mark_done!
-        # p task
     end
   end
 end
