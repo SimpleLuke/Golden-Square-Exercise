@@ -15,6 +15,7 @@ class TodoList
   end
 
   def complete
+    @incomplete_list.select {|todo| todo.done?}
     # Returns all complete todos
   end
 

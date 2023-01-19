@@ -19,6 +19,7 @@ describe 'Todo List integration' do
     end
 
     it 'returns a array list including all the todos marked as done' do
-        todo_list = TodoList.new
+        @todo_1.mark_done!
+        expect(@todo_list.complete).to eq [@todo_1]
     end
 end
