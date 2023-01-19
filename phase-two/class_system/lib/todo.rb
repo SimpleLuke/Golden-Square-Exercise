@@ -7,6 +7,7 @@ class Todo
   
     def task
       # Returns the task as a string
+      @task
     end
   
     def mark_done!
