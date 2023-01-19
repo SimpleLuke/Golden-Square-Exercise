@@ -12,12 +12,12 @@ class TodoList
 
   def incomplete
     # Returns all non-done todos
+    @incomplete_list.select! {|task| !task.done?}
     @incomplete_list
   end
 
   def complete
     @incomplete_list.each {|task| @complete_list.push(task) if task.done?}
-    @incomplete_list.select! {|task| !task.done?}
     @complete_list
     # Returns all complete todos
   end
