@@ -2,6 +2,7 @@
 class TodoList
   def initialize
     @incomplete_list = []
+    @complete_list = []
   end
 
   def add(todo) # todo is an instance of Todo
@@ -15,11 +16,19 @@ class TodoList
   end
 
   def complete
-    @incomplete_list.select {|todo| todo.done?}
+    @incomplete_list.each {|task| @complete_list.push(task) if task.done?}
+    @incomplete_list.select! {|task| !task.done?}
+    @complete_list
     # Returns all complete todos
   end
 
   def give_up!
     # Marks all todos as complete
+    # p @incomplete_list
+    @incomplete_list.each do |task|
+        # p task
+        task.mark_done!
+        # p task
+    end
   end
 end
