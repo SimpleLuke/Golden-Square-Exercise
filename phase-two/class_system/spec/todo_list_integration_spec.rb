@@ -12,11 +12,6 @@ describe 'Todo List integration' do
         @todo_list.add(@todo_3)
     end
     it 'adds todo instances and returns all non-done todos as an array' do
-        # todo_list = TodoList.new
-        # todo_1 = Todo.new('Walk the dog')
-        # todo_2 = Todo.new('Clean the dishes')
-        # todo_list.add(todo_1)
-        # todo_list.add(todo_2)
         expect(@todo_list.incomplete).to eq [@todo_1,@todo_2,@todo_3]
     end
 
