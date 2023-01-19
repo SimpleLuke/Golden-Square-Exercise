@@ -2,7 +2,7 @@ class DiaryEntry
   def initialize(title, contents) # title, contents are strings
     @title = title
     @contents = contents
-    # @reading_index = {start:0, last:0}
+    @reading_index = {start:0, last:0}
   end
 
   def title
