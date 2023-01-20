@@ -18,8 +18,8 @@ describe 'Todo List integration' do
     it 'returns a array list including all the todos marked as done and the completed task disappear from the incomplete list' do
         @todo_1.mark_done!
         @todo_2.mark_done!
-        expect(@todo_list.complete).to eq [@todo_1,@todo_2]
         expect(@todo_list.incomplete).to eq [@todo_3]
+        expect(@todo_list.complete).to eq [@todo_1,@todo_2]
     end
 
     it 'marks all todos as complete and returns a complete list as an array' do
