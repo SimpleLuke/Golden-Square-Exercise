@@ -10,4 +10,9 @@ describe MusicLibrary do
         music_library.add(:track_2)
         expect(music_library.all).to eq [:track_1,:track_2]
     end
+
+    it 'returns a list of tracks that match the keyword' do
+        music_library = MusicLibrary.new
+        
+    end
 end
