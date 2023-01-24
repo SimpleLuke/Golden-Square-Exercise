@@ -100,7 +100,7 @@ chinese_menu = RestaurantMenu.new
 chinese_menu.add_dish('Dim Sum',5)
 chinese_menu.add_dish('Fried Rice',10)
 uber_eat = UberEat.new(chinese_menu)
-uber_eat.show_dishes # => [{'Dim Sim': 5, 'Fried Rice': 10}]
+uber_eat.show_dishes # => [{name:'Dim Sum',price:5},{name:'Fried Rice',price:10}]
 
 ```
 
@@ -120,7 +120,14 @@ chinese_menu.show_menu # => []
 chinese_menu = RestaurantMenu.new
 chinese_menu.add_dish('Dim Sum',5)
 chinese_menu.add_dish('Fried Rice',10)
-chinese_menu.show_menu # => [{"Dim Sum"=> 5},{"Fried Rice"=>10}]
+chinese_menu.show_menu # => [{name:'Dim Sum',price:5},{name:'Fried Rice',price:10}]
+
+# Remove dishes to the menu
+chinese_menu = RestaurantMenu.new
+chinese_menu.add_dish('Dim Sum',5)
+chinese_menu.add_dish('Fried Rice',10)
+chinese_menu.remove_dish('Fried Rice')
+chinese_menu.show_menu # => [{name:"Dim Sum",price:5}]
 
 # Constructs a track
 track = Track.new("Carte Blanche", "Veracocha")
