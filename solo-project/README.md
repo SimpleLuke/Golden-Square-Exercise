@@ -48,13 +48,11 @@ class UberEat
   def add_to_cart(dish, quantity) # dish is a string; quantity is a integer
     # Raise a fail if the dish is not on the menu.
     # Dish gets added to the cart with the input quantity.
-    # puts a message 'Successfully added!'
     # Returns nothing.
   end
 
   def remove_from_cart(dish,quantity) # dish is a string; quantity is a integer
     # Dish gets removed from the cart with the input quantity.
-    # puts a message 'Successfully removed!'
     # Returns nothing.
   end
 
@@ -70,13 +68,11 @@ class RestaurantMenu
 
   def add_dish(name,price) # name is a string; price is a integer
     # Dish name gets added to the menu with the price.
-    # puts a message 'Successfully added!'
     # Returns nothing.
   end
 
   def remove_dish(name) # name is a string
     # Dish gets removed from the menu.
-    # puts a message 'Successfully removed!'
     # Returns nothing.
   end
 
