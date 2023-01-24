@@ -48,7 +48,7 @@ describe 'Integration' do
     uber_eat = UberEat.new(chinese_menu)
     expect {uber_eat.add_to_cart('Dim Sum',2)}.to raise_error 'Ops, this dish is not available!'
   end
-  
+
   it 'removes dish and the input amount from the cart' do
     chinese_menu = RestaurantMenu.new
     chinese_menu.add_dish('Dim Sum',5)
@@ -57,8 +57,17 @@ describe 'Integration' do
     uber_eat.add_to_cart('Dim Sum',2)
     uber_eat.add_to_cart('Fried Rice',3)
     expect(uber_eat.show_cart).to eq "Dim Sum => 2\nFried Rice => 3\nTotal: $40"
-  uber_eat.remove_from_cart('Fried Rice',2)
+    uber_eat.remove_from_cart('Fried Rice',2)
     expect(uber_eat.show_cart).to eq "Dim Sum => 2\nFried Rice => 1\nTotal: $20"
+  end
+
+  it 'filters any dishes with quantity less than one' do
+    chinese_menu = RestaurantMenu.new
+    chinese_menu.add_dish('Dim Sum',5)
+    uber_eat = UberEat.new(chinese_menu)
+    uber_eat.add_to_cart('Dim Sum',2)
+    uber_eat.remove_from_cart('Dim Sum',3)
+    expect(uber_eat.show_cart).to eq "Total: $0"
   end
 
 end
