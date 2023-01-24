@@ -25,4 +25,12 @@ describe 'Integration' do
     expect(uber_eat.show_dishes).to eq [{name:'Dim Sum',price:5}]
   end
 
+  it 'adds two dim sum to the cart and returns a list' do
+    chinese_menu = RestaurantMenu.new
+    chinese_menu.add_dish('Dim Sum',5)
+    uber_eat = UberEat.new(chinese_menu)
+    uber_eat.add_to_cart('Dim Sum',2)
+    expect(uber_eat.show_cart).to eq "Dim Sum => 2\nTotal: $10"
+  end
+
 end

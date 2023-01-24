@@ -102,6 +102,12 @@ chinese_menu.add_dish('Fried Rice',10)
 uber_eat = UberEat.new(chinese_menu)
 uber_eat.show_dishes # => [{name:'Dim Sum',price:5},{name:'Fried Rice',price:10}]
 
+# Adds dishes to the cart and returns a list
+chinese_menu = RestaurantMenu.new
+chinese_menu.add_dish('Dim Sum',5)
+uber_eat = UberEat.new(chinese_menu)
+uber_eat.add_to_cart('Dim Sum', 2) # Adds two Dim Sum into the cart
+uber_eat.show_cart # => "[{"Dim Sum" => 2}] Total: $10"
 ```
 
 ## 4. Create Examples as Unit Tests
