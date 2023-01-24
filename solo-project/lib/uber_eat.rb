@@ -11,11 +11,20 @@ class UberEat
   def add_to_cart(dish,quantity)
     @menu.show_menu.each do |item|
       if item[:name] == dish 
-       @cart << {dish:dish,quantity:quantity} 
+        @cart << {dish:dish,quantity:quantity} 
         return
       end
     end
     fail 'Ops, this dish is not available!' 
+  end
+
+  def remove_from_cart(dish,quantity)
+    @cart.each do |item|
+      if item[:dish] == dish
+        item[:quantity] -= quantity
+      end
+    end
+    @cart = @cart.select {|item| item[:quantity] > 0}
   end
 
 
@@ -28,7 +37,7 @@ class UberEat
   end
 
   private
-  
+
   def total_cost
     total = 0
     @cart.each do |item|

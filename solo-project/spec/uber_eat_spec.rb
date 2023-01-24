@@ -19,4 +19,10 @@ describe UberEat do
     uber_eat.add_to_cart('Dim Sum',2)
     expect(uber_eat.show_cart).to eq "Dim Sum => 2\nTotal: $10"
   end
+
+  it 'raises an error if the added item is not on the menu' do
+    chinese_menu = double :menu, show_menu:[]
+    uber_eat = UberEat.new(chinese_menu)
+    expect {uber_eat.add_to_cart('Dim Sum',2)}.to raise_error 'Ops, this dish is not available!'
+  end
 end
