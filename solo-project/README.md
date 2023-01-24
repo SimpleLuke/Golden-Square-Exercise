@@ -46,6 +46,7 @@ class UberEat
   end
 
   def add_to_cart(dish, quantity) # dish is a string; quantity is a integer
+    # Raise a fail if the dish is not on the menu.
     # Dish gets added to the cart with the input quantity.
     # puts a message 'Successfully added!'
     # Returns nothing.

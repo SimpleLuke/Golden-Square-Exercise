@@ -9,12 +9,17 @@ class UberEat
   end
 
   def add_to_cart(dish,quantity)
-   @cart << {dish:dish,quantity:quantity} 
+    @menu.show_menu.each do |item|
+      if item[:name] == dish 
+       @cart << {dish:dish,quantity:quantity} 
+        return
+      end
+    end
+    fail 'Ops, this dish is not available!' 
   end
 
 
   def show_cart
-    # total_cost = 0
     dish_list = ""
     @cart.each do |item| 
       dish_list += "#{item[:dish]} => #{item[:quantity]}\n"
