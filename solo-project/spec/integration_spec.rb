@@ -1,5 +1,6 @@
 require 'uber_eat'
 require 'restaurant_menu'
+require 'fake_sms'
 
 describe 'Integration' do
   it 'gets no available dishes from the empty menu' do
@@ -70,4 +71,21 @@ describe 'Integration' do
     expect(uber_eat.show_cart).to eq "Total: $0"
   end
 
+  it 'calls an API to send a text to confirm order' do
+    # Do not test other people code
+    # Test what I want my app do
+    # Find the gem for testing twolio
+    # Test the message content
+    # To check if twolio works, a manual test can be done later
+    # fake_sms = FakeSMS.new('sid','token')
+    # fake_sms.create(from:'+17172948932',to:'+447563174825',body:'Thank you! Your order was placed and will be delivered before 18:52')
+    # last_message = fake_sms.messages
+    requester_twilio = FakeSMS.new('sid','token')
+    chinese_menu = RestaurantMenu.new
+    uber_eat = UberEat.new(chinese_menu,requester_twilio)
+    time = Time.new(2023,01,25,13,0,0)
+    result = uber_eat.order('+447563174825',time)
+    expect(uber_eat.total_cost).to eq 0
+    expect(result).to eq 'Thank you! Your order was placed and will be delivered before 13:10'
+  end
 end

@@ -12,6 +12,10 @@
 > So that I can verify that my order is correct
 > I would like to see an itemised receipt with a grand total.
 
+> As a customer
+> So that I am reassured that my order will be delivered on time
+> I would like to receive a text such as "Thank you! Your order was placed and will be delivered before 18:52" after I have ordered.
+
 ## 2. Design the Class System
 
 ```
@@ -22,7 +26,7 @@
 │  - add_to_cart(dish,quantity)      │
 │  - remove_from_cart(dish,quantity) │
 │  - show_cart                       │
-│                                    │
+│  - order(phone)                    │
 └──────────────────▲─────────────────┘
                    │
                    │
