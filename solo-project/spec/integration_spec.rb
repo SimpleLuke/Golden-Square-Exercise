@@ -88,4 +88,18 @@ describe 'Integration' do
     expect(uber_eat.total_cost).to eq 0
     expect(result).to eq 'Thank you! Your order was placed and will be delivered before 13:10'
   end
+
+  it 'calls an API to send a text to confirm order with rspec doubles' do
+    requester_twilio = double :requester
+    allow(requester_twilio).to receive(:messages).and_return(requester_twilio)
+    message_info = {from:'+17172948932',to:'+447563174825',body:'Thank you! Your order was placed and will be delivered before 13:10'}
+    allow(requester_twilio).to receive(:create).with(message_info).and_return('Thank you! Your order was placed and will be delivered before 13:10')
+
+    chinese_menu = RestaurantMenu.new
+    uber_eat = UberEat.new(chinese_menu,requester_twilio)
+    time = Time.new(2023,01,25,13,0,0)
+    result = uber_eat.order('+447563174825',time)
+    expect(uber_eat.total_cost).to eq 0
+    expect(result).to eq 'Thank you! Your order was placed and will be delivered before 13:10'
+  end
 end
